@@ -1,0 +1,33 @@
+name: example
+on: push
+
+env:
+  NODE_VERSION: 16.15.1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: main
+    - name: get Fab config
+      uses: actions/checkout@v3
+      with:
+        repository: Jooliashi/fab-config
+        path: fab.config.json5
+    - run: |
+        ls ${{ github.workspace }}
+    
+
+    # - name: Set up Node.js
+    #   uses: actions/setup-node@v3
+    #   with:
+    #     node-version: ${{ env.NODE_VERSION }}
+    #     cache: 'npm'
+    # - name: fab build
+    #   run: |
+    #     npm install
+    #     npx fab init
+    #     npm run build:fab
