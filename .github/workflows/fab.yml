@@ -21,6 +21,7 @@ jobs:
       run: |
         npm install
         npx fab init
+        y
         npm run build:fab
     - name: remove old config
       run: |
