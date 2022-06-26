@@ -20,9 +20,7 @@ jobs:
     - name: fab build
       run: |
         npm install
-        npx fab init
-        expect "Good to go? [y/N]:"
-        send -- "yes"
+        echo -ne "yes\n" | npx fab init
         npm run build:fab
     - name: remove old config
       run: |
